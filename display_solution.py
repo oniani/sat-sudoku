@@ -23,4 +23,5 @@ def main():
         print("\nGiven puzzle has no solutions.")
 
 
-main()
+if __name__ == "__main__":
+    main()

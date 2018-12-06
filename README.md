@@ -4,12 +4,10 @@ This is the implementation of the minisat sudoku solver based on the [paper](htt
 
 Sudoku is modeled as the SAT problem. The idea is to formulate a sudoku puzzle as a SAT formula if the puzzle has a solution. Then we use the [minisat](http://minisat.se/) program to find the solution.
 
-A minisat solver is a program that solves the satisfiability problem: given a formula, it either returns an assignment that makes it true, or says that no such assignment exists. SAT solvers typically use a restricted form of propositional formula called CNF (conjunctive normal form). CNF consists of a set of clauses, each of which is a set of literals. A literal is a variable or its negation. Each clause is interpreted as the disjunction (OR) of its literals, and the formula as a whole is interpreted as the conjunction (AND) of the clauses.
+A minisat solver is a program that solves the satisfiability problem: given a formula, it either returns an assignment that makes it true, or says that no such assignment exists. SAT solvers typically use a restricted form of propositional formula called CNF (conjunctive normal form). CNF consists of a set of clauses, each of which is a set of literals. A literal is a variable or its negation. Each clause is interpreted as the disjunction of its literals, and the formula as a whole is interpreted as the conjunction of the clauses.
 
-
-## Representation
-To model sudoku as a SAT problem, we represent it as a grid of digits where the unknown cells
-are called the 'x cells'.
+## Approach
+To model sudoku as a SAT problem, we represent it as a grid of digits where the unknown cells are represented with the character **x**.
 
 Here are some of the examples of the sudoku problems.
 
@@ -25,8 +23,7 @@ Here are some of the examples of the sudoku problems.
     2 x 7 x x x x 3 x    x 3 x 8 x 6 x 9 x    x 9 6 4 x x x 8 x
 ```
 
-
-## Running the solver
+## Setup
 
 ### macOS
 ```bash
@@ -46,7 +43,10 @@ $ ./solve PATH_TO_THE_PUZZLE
 ```
 
 ### Windows
-Follow the [link](http://web.cecs.pdx.edu/~hook/logicw11/Assignments/MinisatOnWindows.html).
+Follow this [guide](http://web.cecs.pdx.edu/~hook/logicw11/Assignments/MinisatOnWindows.html).
 
-# License
+There are 9 sample puzzles which are available under directory called `puzzles`.
+To solve the first puzzle, simply run `./solve puzzles/sudoku1.puzzle`.
+
+## License
 [MIT](https://github.com/oniani/minisat-sudoku/blob/master/LICENSE)

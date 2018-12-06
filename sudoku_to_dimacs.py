@@ -16,18 +16,26 @@ import sys
 
 
 def main():
+    # Open the puzzle file in the read mode
     puzzle = open(sys.argv[1], 'r')
-    dimacs = open('sudoku.dimacs', 'w', newline='')
 
+    # Open the dimacs file in the write mode
+    dimacs = open('sudoku.dimacs', 'w')
+
+    # A function to calculate the 's' value
     def s(x, y, z): return 81 * (x - 1) + 9 * (y - 1) + z
 
+    # A list for the preassigned entries
     preassigned_entries = []
-    preassigned_entries_count = 0
 
+    # row number
     row_number = 1
+
+    # column number
     column_number = 0
 
-    for i in range(1, 10):
+    # Read the puzzle and fill up the 'preassigned_entries' list
+    for _ in range(1, 10):
         line = puzzle.readline()
         digits = line.split()
         column_number = 0
@@ -35,53 +43,59 @@ def main():
             column_number += 1
             if digit != 'x':
                 preassigned_entries.append(s(row_number, column_number, int(digit)))
-                preassigned_entries_count += 1
         row_number += 1
 
-    dimacs.write(f"p cnf 729 {8829 + preassigned_entries_count}\n")
+    # A DIMACS file begins with a line containing 'p' followed by 'cnf' for the CNF
+    dimacs.write(f"p cnf 729 {8829 + len(preassigned_entries)}\n")
 
+    # Write the preassigned entries to the file
     for entry in preassigned_entries:
         dimacs.write(f"{entry} 0\n")
 
-    for i in range(1, 10):
-        for j in range(1, 10):
-            for k in range(1, 10):
-                dimacs.write(f"{s(i, j, k)} ")
+    # There is at least one number in each entry
+    for x in range(1, 10):
+        for y in range(1, 10):
+            for z in range(1, 10):
+                dimacs.write(f"{s(x, y, z)} ")
             dimacs.write("0\n")
 
-    for i in range(1, 10):
-        for j in range(1, 10):
-            for k in range(1, 9):
-                for l in range(k + 1, 10):
-                    dimacs.write(f"{-s(k, i, j)} {-s(l, i, j)} 0\n")
+    # Each number appears at most once in each row
+    for y in range(1, 10):
+        for z in range(1, 10):
+            for x in range(1, 9):
+                for i in range(x + 1, 10):
+                    dimacs.write(f"{-s(x, y, z)} {-s(i, y, z)} 0\n")
 
-    for i in range(1, 10):
-        for j in range(1, 10):
-            for k in range(1, 9):
-                for l in range(k + 1, 10):
-                    dimacs.write(f"{-s(i, k, j)} ")
-                    dimacs.write(f"{-s(i, l, j)} 0\n")
+    # Each number appears at most once in each column
+    for x in range(1, 10):
+        for z in range(1, 10):
+            for y in range(1, 9):
+                for i in range(y + 1, 10):
+                    dimacs.write(f"{-s(x, y, z)} {-s(x, i, z)} 0\n")
 
-    for i in range(1, 10):
-        for j in range(0, 3):
-            for k in range(0, 3):
-                for l in range(1, 4):
-                    for m in range(1, 4):
-                        for n in range(m + 1, 4):
-                            dimacs.write(f"{-s(3 * j + l, 3 * k + m, i)} ")
-                            dimacs.write(f"{-s(3 * j + l, 3 * k + n, i)} 0\n")
+    # Each number appears at most once in each 3x3 sub-grid
+    for z in range(1, 10):
+        for i in range(0, 3):
+            for j in range(0, 3):
+                for x in range(1, 4):
+                    for y in range(1, 4):
+                        for k in range(y + 1, 4):
+                            dimacs.write(f"{-s(3 * i + x, 3 * j + y, z)} {-s(3 * i + x, 3 * j + k, z)} 0\n")
 
-    for i in range(1, 10):
-        for j in range(0, 3):
-            for k in range(0, 3):
-                for l in range(1, 4):
-                    for m in range(1, 4):
-                        for n in range(l + 1, 4):
-                            for o in range(1, 4):
-                                dimacs.write(f"{-s(3 * j + l, 3 * k + m, i)} ")
-                                dimacs.write(f"{-s(3 * j + n, 3 * k + o, i)} 0\n")
+    # Each number appears at most once in each 3x3 subgrid
+    for z in range(1, 10):
+        for i in range(0, 3):
+            for j in range(0, 3):
+                for x in range(1, 4):
+                    for y in range(1, 4):
+                        for k in range(x + 1, 4):
+                            for l in range(1, 4):
+                                dimacs.write(f"{-s(3 * i + x, 3 * j + y, z)} {-s(3 * i + k, 3 * j + l, z)} 0\n")
 
+    # Close the puzzle file
     puzzle.close()
+
+    # Close the dimacs file
     dimacs.close()
 
 
