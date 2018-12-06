@@ -10,12 +10,12 @@ def main():
 
     if line.strip() == "SAT":
         print("\n S O L U T I O N\n- - - - - - - - - ")
-        solution = input()
+        solution = input().split()
 
         for i in range(1, 10):
             for j in range(1, 10):
                 for k in range(1, 10):
-                    if f" {p(i, j, k)} " in solution:
+                    if str(p(i, j, k)) in solution:
                         print(f"{k} ", end='')
             print()
 
