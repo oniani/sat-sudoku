@@ -15,7 +15,7 @@ For the in-depth explanation of how the sudoku solver works, see the [paper](pap
 $ brew install minisat
 $ git clone https://github.com/oniani/minisat-sudoku.git
 $ cd minisat-sudoku
-$ ./solve PATH_TO_THE_PUZZLE
+$ ./solve A_PATH_TO_THE_PUZZLE
 ```
 
 ### Linux
@@ -24,15 +24,16 @@ $ sudo apt-get update
 $ sudo apt-get install minisat
 $ git clone https://github.com/oniani/minisat-sudoku.git
 $ cd minisat-sudoku
-$ ./solve PATH_TO_THE_PUZZLE
+$ ./solve A_PATH_TO_THE_PUZZLE
 ```
 
 ### Windows
 Follow this [guide](http://web.cecs.pdx.edu/~hook/logicw11/Assignments/MinisatOnWindows.html).
 
-There are 9 sample puzzles available under directory called `puzzles`.
-
+---
+There are 9 sample sudoku puzzles available under directory called `puzzles`.  
 To solve the first puzzle, simply run `./solve puzzles/sudoku1.puzzle`.
+
 
 ## References
 * [Inês Lynce and Jöel Ouaknine, Sudoku as a SAT Problem](paper.pdf)
