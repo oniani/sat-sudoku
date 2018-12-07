@@ -1,14 +1,12 @@
 """
---------------------
 Author: David Oniani
-Date: 12/05/2018
+Date: 12/06/2018
 License: MIT
---------------------
 
 An implementation of the minisat sudoku solver
-according to https://pdfs.semanticscholar.org/535d/06391275618a7b913d1c98a1353286db8d74.pdf
+according to https://pdfs.semanticscholar.org/535d/06391275618a7b913d1c98a1353286db8d74.pdf.
 
-For more information, see https://en.wikipedia.org/wiki/Sudoku
+For more information, visit https://en.wikipedia.org/wiki/Sudoku.
 """
 
 
@@ -19,7 +17,7 @@ def main():
     # Open the puzzle file in the read mode
     puzzle = open(sys.argv[1], 'r')
 
-    # Open the dimacs file in the write mode
+    # Open the DIMACS file in the write mode
     dimacs = open('sudoku.dimacs', 'w')
 
     # A function to calculate the 's' value
@@ -34,7 +32,7 @@ def main():
     # column number
     column_number = 0
 
-    # Read the puzzle and fill up the 'preassigned_entries' list
+    # Read the puzzle and fill up the list for the preassigned_entries
     for _ in range(1, 10):
         line = puzzle.readline()
         digits = line.split()
@@ -45,7 +43,7 @@ def main():
                 preassigned_entries.append(s(row_number, column_number, int(digit)))
         row_number += 1
 
-    # A DIMACS file begins with a line containing 'p' followed by 'cnf' for the CNF
+    # A DIMACS file begins with a line containing 'p' followed by 'cnf', the number of variables, and the number of clauses
     dimacs.write(f"p cnf 729 {8829 + len(preassigned_entries)}\n")
 
     # Write the preassigned entries to the file
@@ -95,7 +93,7 @@ def main():
     # Close the puzzle file
     puzzle.close()
 
-    # Close the dimacs file
+    # Close the DIMACS file
     dimacs.close()
 
 
