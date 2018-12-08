@@ -20,7 +20,7 @@ def main():
             for j in range(1, 10):
                 for k in range(1, 10):
                     if str(p(i, j, k)) in solution:
-                        print(f"{k} ", end='')
+                        print(k, end=' ')
             print()
 
     else:
