@@ -3,10 +3,9 @@ Author: David Oniani
 Date: 12/06/2018
 License: MIT
 
-An implementation of the minisat sudoku solver
-according to https://pdfs.semanticscholar.org/535d/06391275618a7b913d1c98a1353286db8d74.pdf.
+An implementation of the minisat sudoku solver using minimal encoding.
 
-For more information, visit https://en.wikipedia.org/wiki/Sudoku.
+To learn more about the sudoku game, visit https://en.wikipedia.org/wiki/Sudoku.
 """
 
 
