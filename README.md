@@ -39,6 +39,3 @@ To solve the first puzzle, simply run `./solve puzzles/sudoku1.puzzle`.
 * [Inês Lynce and Jöel Ouaknine, Sudoku as a SAT Problem](paper.pdf)
 * [MiniSat](http://minisat.se/)
 * [Sudoku](https://en.wikipedia.org/wiki/Sudoku)
-
-## License
-[MIT](https://github.com/oniani/minisat-sudoku/blob/master/LICENSE)
