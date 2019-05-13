@@ -1,7 +1,7 @@
 """
 Author: David Oniani
 Date: 12/06/2018
-License: MIT
+License: GNU General Public License v3.0
 
 A pretty-printer to display the solution.
 """

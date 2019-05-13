@@ -1,5 +1,4 @@
 # SAT sudoku solver
-
 This is the implementation of the SAT sudoku solver based on the paper by Inês Lynce and Jöel Ouaknine called *Sudoku as a SAT Problem*.
 
 Sudoku is modeled as the SAT problem. The idea is to formulate a sudoku puzzle as a SAT formula if the puzzle has a solution. Then we use the SAT program to find the solution.
@@ -9,7 +8,6 @@ SAT is a program that solves the satisfiability problem: given a formula, it eit
 This implementation uses [MiniSat](http://minisat.se/).
 
 For the in-depth explanation of how the sudoku solver works, see the [paper](paper.pdf).
-
 
 ## Setup
 
@@ -30,18 +28,17 @@ $ cd minisat-sudoku
 $ ./solve A_PATH_TO_THE_PUZZLE
 ```
 
-### Windows
+## Windows
 Follow this [guide](http://web.cecs.pdx.edu/~hook/logicw11/Assignments/MinisatOnWindows.html).
 
 ---
 There are 9 sample sudoku puzzles available under directory called `puzzles`.  
 To solve the first puzzle, simply run `./solve puzzles/sudoku1.puzzle`.
 
-
 ## References
 * [Inês Lynce and Jöel Ouaknine, Sudoku as a SAT Problem](paper.pdf)
 * [MiniSat](http://minisat.se/)
 * [Sudoku](https://en.wikipedia.org/wiki/Sudoku)
 
-### License
+## License
 [GNU General Public License v3.0](LICENSE)
