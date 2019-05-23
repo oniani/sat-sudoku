@@ -1,4 +1,4 @@
-# SAT sudoku solver
+# SAT Sudoku Solver
 This is the implementation of the SAT sudoku solver based on the paper by Inês Lynce and Jöel Ouaknine called *Sudoku as a SAT Problem*.
 
 Sudoku is modeled as the SAT problem. The idea is to formulate a sudoku puzzle as a SAT formula if the puzzle has a solution. Then we use the SAT program to find the solution.
