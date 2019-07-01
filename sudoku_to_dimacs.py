@@ -14,13 +14,14 @@ import sys
 
 def main():
     # Open the puzzle file in the read mode
-    puzzle = open(sys.argv[1], 'r')
+    puzzle = open(sys.argv[1], "r")
 
     # Open the DIMACS file in the write mode
-    dimacs = open('sudoku.dimacs', 'w')
+    dimacs = open("sudoku.dimacs", "w")
 
     # A function to calculate the 's' value
-    def s(x, y, z): return 81 * (x - 1) + 9 * (y - 1) + z
+    def s(x, y, z):
+        return 81 * (x - 1) + 9 * (y - 1) + z
 
     # A list for the preassigned entries
     preassigned_entries = []
@@ -38,8 +39,10 @@ def main():
         column_number = 0
         for digit in digits:
             column_number += 1
-            if digit != 'x':
-                preassigned_entries.append(s(row_number, column_number, int(digit)))
+            if digit != "x":
+                preassigned_entries.append(
+                    s(row_number, column_number, int(digit))
+                )
         row_number += 1
 
     # A DIMACS file begins with a line containing 'p' followed by 'cnf', the number of variables, and the number of clauses
@@ -77,7 +80,9 @@ def main():
                 for x in range(1, 4):
                     for y in range(1, 4):
                         for k in range(y + 1, 4):
-                            dimacs.write(f"{-s(3 * i + x, 3 * j + y, z)} {-s(3 * i + x, 3 * j + k, z)} 0\n")
+                            dimacs.write(
+                                f"{-s(3 * i + x, 3 * j + y, z)} {-s(3 * i + x, 3 * j + k, z)} 0\n"
+                            )
 
     # Each number appears at most once in each 3x3 subgrid
     for z in range(1, 10):
@@ -87,7 +92,9 @@ def main():
                     for y in range(1, 4):
                         for k in range(x + 1, 4):
                             for l in range(1, 4):
-                                dimacs.write(f"{-s(3 * i + x, 3 * j + y, z)} {-s(3 * i + k, 3 * j + l, z)} 0\n")
+                                dimacs.write(
+                                    f"{-s(3 * i + x, 3 * j + y, z)} {-s(3 * i + k, 3 * j + l, z)} 0\n"
+                                )
 
     # Close the puzzle file
     puzzle.close()

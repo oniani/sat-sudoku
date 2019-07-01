@@ -8,7 +8,8 @@ A pretty-printer to display the solution.
 
 
 def main():
-    def p(x, y, z): return (((x - 1) * 9) + (y - 1)) * 9 + z
+    def p(x, y, z):
+        return (((x - 1) * 9) + (y - 1)) * 9 + z
 
     line = input()
 
@@ -20,7 +21,7 @@ def main():
             for j in range(1, 10):
                 for k in range(1, 10):
                     if str(p(i, j, k)) in solution:
-                        print(k, end=' ')
+                        print(k, end=" ")
             print()
 
     else:
