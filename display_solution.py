@@ -1,10 +1,11 @@
-"""
-Author: David Oniani
-Date: 12/06/2018
-License: GNU General Public License v3.0
+#!/usr/bin/env python3
+# encoding: UTF-8
 
-A pretty-printer to display the solution.
-"""
+"""A pretty-printer to display the solution."""
+
+__author__ = "David Oniani"
+__email__ = "onianidavid@gmail.com"
+__license__ = "GPLv3"
 
 
 def main() -> None:

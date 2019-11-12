@@ -1,14 +1,16 @@
+#!/usr/bin/env python3
+# encoding: UTF-8
+
 """
-Author: David Oniani
-Date: 12/06/2018
-License: GNU General Public License v3.0
-
 An implementation of the SAT sudoku solver using minimal encoding.
-
 For more about the sudoku game, visit https://en.wikipedia.org/wiki/Sudoku.
 """
 
 import sys
+
+__author__ = "David Oniani"
+__email__ = "onianidavid@gmail.com"
+__license__ = "GPLv3"
 
 
 def main() -> None:

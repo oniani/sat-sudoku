@@ -15,7 +15,7 @@ is a set of literals. A literal is a variable or its negation. Each clause is
 interpreted as the disjunction of its literals, and the formula as a whole is
 interpreted as the conjunction of the clauses.
 
-This implementation uses [MiniSat](http://minisat.se/)'s Rust reimplementation
+This project uses [MiniSat](http://minisat.se/)'s Rust reimplementation
 [RatSat](https://github.com/qnighy/ratsat).
 
 For the in-depth explanation of how the sudoku solver works, see the
