@@ -7,7 +7,7 @@ A pretty-printer to display the solution.
 """
 
 
-def main():
+def main() -> None:
     def p(x, y, z):
         return (((x - 1) * 9) + (y - 1)) * 9 + z
 

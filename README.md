@@ -24,9 +24,8 @@ For the in-depth explanation of how the sudoku solver works, see the
 ## Setup
 
 ```sh
-$ git clone https://github.com/qnighy/ratsat.git
-$ cargo build
-$ cargo install
+$ git clone https://github.com/oniani/sat-sudoku.git
+$ cd sat-sudoku
 $ ./solve A_PATH_TO_THE_PUZZLE
 ```
 

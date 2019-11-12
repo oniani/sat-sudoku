@@ -5,14 +5,13 @@ License: GNU General Public License v3.0
 
 An implementation of the SAT sudoku solver using minimal encoding.
 
-To learn more about the sudoku game, visit https://en.wikipedia.org/wiki/Sudoku.
+For more about the sudoku game, visit https://en.wikipedia.org/wiki/Sudoku.
 """
-
 
 import sys
 
 
-def main():
+def main() -> None:
     # Open the puzzle file in the read mode
     puzzle = open(sys.argv[1], "r")
 
@@ -45,7 +44,8 @@ def main():
                 )
         row_number += 1
 
-    # A DIMACS file begins with a line containing 'p' followed by 'cnf', the number of variables, and the number of clauses
+    # A DIMACS file begins with a line containing 'p' followed by 'cnf', the
+    # number of variables, and the number of clauses
     dimacs.write(f"p cnf 729 {8829 + len(preassigned_entries)}\n")
 
     # Write the preassigned entries to the file
