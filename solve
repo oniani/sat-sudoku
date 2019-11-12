@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 python3 sudoku_to_dimacs.py "$1"
-minisat -verb=0 sudoku.dimacs sudoku.solution
+./ratsat --verb=0 sudoku.dimacs sudoku.solution
 python3 display_solution.py < sudoku.solution
