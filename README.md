@@ -43,4 +43,4 @@ To solve the first puzzle, simply run `./solve puzzles/sudoku1.puzzle`.
 
 ## License
 
-[GNU General Public License v3.0](LICENSE)
+[MIT License](LICENSE)
