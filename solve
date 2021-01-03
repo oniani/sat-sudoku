@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # Sudoku solver
 # by David Oniani <onianidavid@gmail.com>
-# License: GNU GPLv3
+# License: MIT
 
 python3 sudoku_to_dimacs.py "$1"
 ./ratsat --verb=0 sudoku.dimacs sudoku.solution
