@@ -41,9 +41,7 @@ def main() -> None:
         for digit in digits:
             column_number += 1
             if digit != "x":
-                preassigned_entries.append(
-                    s(row_number, column_number, int(digit))
-                )
+                preassigned_entries.append(s(row_number, column_number, int(digit)))
         row_number += 1
 
     # A DIMACS file begins with a line containing 'p' followed by 'cnf', the
