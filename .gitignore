@@ -161,4 +161,8 @@ dmypy.json
 # Ignore all local history of files
 .history
 
+# sudoku
+sudoku.dimacs
+sudoku.solution
+
 # End of https://www.gitignore.io/api/macos,python,visualstudiocode

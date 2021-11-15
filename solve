@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
-# Sudoku solver
-# by David Oniani <onianidavid@gmail.com>
-# License: MIT
 
-python3 sudoku_to_dimacs.py "$1"
-./ratsat --verb=0 sudoku.dimacs sudoku.solution
-python3 display_solution.py < sudoku.solution
+# Sudoku solver
+
+./sudoku_to_dimacs.py "$1"
+./ratsat sudoku.dimacs sudoku.solution >/dev/null
+./display_solution.py < sudoku.solution
